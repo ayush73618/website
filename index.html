@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Appointment</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #dfe9f3, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: #ffffff;
+        padding: 30px 25px;
+        border-radius: 14px;
+        width: 100%;
+        max-width: 360px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #25d366;
+        box-shadow: 0 0 3px rgba(37, 211, 102, 0.4);
+      }
+
+      textarea {
+        resize: none;
+        height: 70px;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 18px;
+        background: #25d366;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      button:hover {
+        background: #1ebe5d;
+        transform: translateY(-1px);
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 13px;
+        margin-top: 15px;
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Book Appointment</h2>
+
+      <input type="text" id="name" placeholder="Your Name" />
+      <input type="number" id="age" placeholder="Your Age" />
+
+      <input type="date" id="date" />
+
+      <select id="time">
+        <option value="">Select Time</option>
+        <option>10:00 AM</option>
+        <option>12:00 PM</option>
+        <option>4:00 PM</option>
+        <option>6:00 PM</option>
+      </select>
+
+      <textarea
+        id="problem"
+        placeholder="Describe your problem (optional)"
+      ></textarea>
+
+      <button onclick="sendToWhatsApp()">Book on WhatsApp</button>
+
+      <div class="footer">Clinic Hours: 10 AM - 7 PM</div>
+    </div>
+
+    <script>
+      function sendToWhatsApp() {
+        let name = document.getElementById("name").value.trim();
+        let age = document.getElementById("age").value.trim();
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let problem = document.getElementById("problem").value.trim();
+
+        if (!name || !age || !date || !time) {
+          alert("Please fill all required fields");
+          return;
+        }
+
+        let message = `Hello Doctor,
+
+I would like to book an appointment:
+
+Name: ${name}
+Age: ${age}
+Date: ${date}
+Time: ${time}
+Problem: ${problem || "N/A"}
+
+Please confirm availability.`;
+
+        let phoneNumber = "91775990406"; // 👈 CHANGE THIS
+
+        let url =
+          "https://wa.me/" +
+          phoneNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        window.open(url, "_blank");
+      }
+    </script>
+  </body>
+</html>
