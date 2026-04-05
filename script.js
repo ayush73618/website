@@ -244,3 +244,48 @@ function toggleMenu() {
 }
 
 handleFloatingBar();
+
+function switchLang(lang) {
+  document.querySelectorAll(".lang").forEach((el) => {
+    el.style.display = "none";
+  });
+
+  document.querySelectorAll("." + lang).forEach((el) => {
+    el.style.display = "inline";
+  });
+
+  // active button highlight
+  document.querySelectorAll(".lang-switch button").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+
+  document
+    .querySelector(`.lang-switch button[onclick="switchLang('${lang}')"]`)
+    .classList.add("active");
+
+  localStorage.setItem("lang", lang);
+
+  updatePlaceholders(lang);
+  updateSelectOptions(lang);
+}
+
+window.onload = () => {
+  const lang = localStorage.getItem("lang") || "en";
+  switchLang(lang);
+};
+
+function updatePlaceholders(lang) {
+  document.querySelectorAll("input, textarea").forEach((el) => {
+    if (el.dataset[lang]) {
+      el.placeholder = el.dataset[lang];
+    }
+  });
+}
+
+function updateSelectOptions(lang) {
+  document.querySelectorAll("#time option").forEach((opt) => {
+    if (opt.dataset[lang]) {
+      opt.textContent = opt.dataset[lang];
+    }
+  });
+}

@@ -8,6 +8,39 @@ html {
   scroll-behavior: smooth;
 }
 
+.lang.hi {
+  display: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* LANGUAGE SWITCH */
+.lang-switch {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.lang-switch button {
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.lang-switch button.active {
+  background: #2563eb;
+  color: white;
+}
+
 :root {
   --primary: #2563eb;
   --secondary: #3b82f6;
@@ -70,6 +103,9 @@ body {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
+.header {
+  backdrop-filter: blur(10px);
+}
 
 /* LOGO */
 .logo {
@@ -119,7 +155,7 @@ body {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -5px;
+  bottom: -2px;
   width: 0;
   height: 2px;
   background: #2563eb;
@@ -556,6 +592,20 @@ body {
 .appointment-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.footer i,
+.contact-info i {
+  margin-right: 8px;
+  color: #2563eb;
 }
 
 /* MODAL BACKGROUND */
@@ -1491,7 +1541,7 @@ textarea {
   .header {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
     gap: 12px;
     border-radius: 20px;
   }
@@ -1545,6 +1595,7 @@ textarea {
     display: none;
     flex-direction: column;
     width: 100%;
+    gap: 0px !important;
   }
 
   .nav.active {
@@ -1554,15 +1605,14 @@ textarea {
 
     background: #ffffff;
     border-radius: 16px;
-    padding: 20px 10px;
     margin-top: 10px;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
   .nav a {
-    padding: 12px 0;
-    font-size: 16px;
+    padding: 8px 0;
+    font-size: 15px;
     width: 100%;
     text-align: center;
   }
@@ -1578,12 +1628,32 @@ textarea {
     border-bottom: 1px solid #eee;
   }
 
+  .nav a:hover::after {
+    width: min-content !important;
+  }
+
   /* BUTTON */
   .appointment-btn {
     width: 100%;
     padding: 10px;
     font-size: 14px;
     border-radius: 25px;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .lang-switch {
+    transform: scale(1.1);
+  }
+
+  .appointment-btn {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
   }
 
   /* HERO */
@@ -1603,7 +1673,7 @@ textarea {
 
   /* SERVICES */
   .services-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   /* ABOUT */
@@ -1630,7 +1700,7 @@ textarea {
 
   /* WHATSAPP BUTTON */
   .whatsapp-float {
-    bottom: 80px;
+    bottom: 90px;
   }
 
   .header-top {

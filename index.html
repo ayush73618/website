@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -43,30 +45,65 @@
 
         <!-- NAV -->
         <nav class="nav" id="navMenu">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#gallery">Our Gallery</a>
+          <a href="#home">
+            <span class="lang en">Home</span>
+            <span class="lang hi">होम</span>
+          </a>
+          <a href="#services">
+            <span class="lang en">Services</span>
+            <span class="lang hi">सेवाएं</span>
+          </a>
+          <a href="#about">
+            <span class="lang en">About Us</span>
+            <span class="lang hi">हमारे बारे में</span>
+          </a>
+          <a href="#contact">
+            <span class="lang en">Contact Us</span>
+            <span class="lang hi">संपर्क करें</span>
+          </a>
+          <a href="#gallery">
+            <span class="lang en">Our Gallery</span>
+            <span class="lang hi">हमारी गैलरी</span>
+          </a>
         </nav>
 
         <!-- BUTTON -->
-        <button class="appointment-btn" onclick="openModal()">
-          Book Appointment →
-        </button>
+        <div class="header-actions">
+          <button class="appointment-btn" onclick="openModal()">
+            <span class="lang en">Book Appointment →</span>
+            <span class="lang hi">अपॉइंटमेंट बुक करें →</span>
+          </button>
+
+          <div class="lang-switch">
+            <button class="active" onclick="switchLang('en')">EN</button>
+            <button onclick="switchLang('hi')">हिंदी</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <section class="hero animate" id="home">
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1>Your Smile, Our Priority</h1>
+          <h1>
+            <span class="lang en">Your Smile, Our Priority</span>
+            <span class="lang hi">आपकी मुस्कान, हमारी प्राथमिकता</span>
+          </h1>
+
           <p>
-            Expert dental care with modern technology and personalized treatment
+            <span class="lang en">
+              Expert dental care with modern technology and personalized
+              treatment to ensure a healthy and confident smile.
+            </span>
+            <span class="lang hi">
+              आधुनिक तकनीक और व्यक्तिगत देखभाल के साथ विशेषज्ञ दंत चिकित्सा
+              सेवाएं, जिससे आपकी मुस्कान स्वस्थ और आत्मविश्वासपूर्ण बनी रहे।
+            </span>
           </p>
 
           <button class="hero-btn" onclick="openModal()">
-            Book An Appointment
+            <span class="lang en">Book An Appointment</span>
+            <span class="lang hi">अपॉइंटमेंट बुक करें</span>
           </button>
         </div>
 
@@ -76,46 +113,129 @@
     </section>
 
     <section class="services animate" id="services">
-      <h2>Our Services</h2>
+      <h2>
+        <span class="lang en">Our Services</span>
+        <span class="lang hi">हमारी सेवाएं</span>
+      </h2>
+
       <p class="services-subtitle">
-        Comprehensive dental care for all your needs
+        <span class="lang en">
+          Comprehensive dental care for all your oral health needs
+        </span>
+        <span class="lang hi">
+          आपकी सभी दंत समस्याओं के लिए सम्पूर्ण और विश्वसनीय उपचार
+        </span>
       </p>
 
       <div class="services-container">
         <div class="service-card">
           <i class="fa-solid fa-tooth"></i>
-          <h3>Teeth Cleaning</h3>
-          <p>Professional cleaning for healthy and bright teeth.</p>
+          <h3>
+            <span class="lang en">Teeth Cleaning</span>
+            <span class="lang hi">दांतों की सफाई</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Professional cleaning for healthy and bright teeth. Helps remove
+              plaque and prevents gum disease.
+            </span>
+            <span class="lang hi">
+              स्वस्थ और चमकदार दांतों के लिए पेशेवर सफाई। यह प्लाक हटाने और
+              मसूड़ों की बीमारी से बचाने में मदद करता है।
+            </span>
+          </p>
         </div>
 
         <div class="service-card">
           <i class="fa-solid fa-screwdriver-wrench"></i>
-          <h3>Root Canal</h3>
-          <p>Pain-free root canal treatment with advanced technology.</p>
+          <h3>
+            <span class="lang en">Root Canal</span>
+            <span class="lang hi">रूट कैनाल उपचार</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Pain-free root canal treatment to save infected teeth and
+              eliminate discomfort using advanced techniques.
+            </span>
+            <span class="lang hi">
+              आधुनिक तकनीक से दर्द रहित रूट कैनाल उपचार, जिससे संक्रमित दांत
+              सुरक्षित रहता है।
+            </span>
+          </p>
         </div>
 
         <div class="service-card">
           <i class="fa-solid fa-hospital-user"></i>
-          <h3>Dental Implants</h3>
-          <p>Permanent solution for missing teeth with natural look.</p>
+          <h3>
+            <span class="lang en">Dental Implants</span>
+            <span class="lang hi">डेंटल इम्प्लांट</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Permanent and natural-looking solution for missing teeth,
+              restoring both function and confidence.
+            </span>
+            <span class="lang hi">
+              खोए हुए दांतों के लिए स्थायी और प्राकृतिक दिखने वाला समाधान।
+            </span>
+          </p>
         </div>
 
         <div class="service-card">
           <i class="fa-solid fa-teeth"></i>
-          <h3>Braces & Aligners</h3>
-          <p>Straighten your teeth with modern orthodontic solutions.</p>
+          <h3>
+            <span class="lang en">Cosmetic Dentistry</span>
+            <span class="lang hi">कॉस्मेटिक डेंटिस्ट्री</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Improve the appearance of your smile with advanced aesthetic
+              dental treatments.
+            </span>
+            <span class="lang hi">
+              आधुनिक सौंदर्य उपचार से अपनी मुस्कान को और आकर्षक बनाएं।
+            </span>
+          </p>
         </div>
 
         <div class="service-card">
           <i class="fa-solid fa-star"></i>
-          <h3>Tooth Whitening</h3>
-          <p>Get a brighter smile with safe whitening treatment.</p>
+          <h3>
+            <span class="lang en">Braces & Aligners</span>
+            <span class="lang hi">ब्रेसेस और अलाइनर्स</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Straighten your teeth with modern orthodontic solutions for a
+              perfect and confident smile.
+            </span>
+            <span class="lang hi">
+              आधुनिक उपचार से दांतों को सीधा करके एक सुंदर मुस्कान पाएं।
+            </span>
+          </p>
         </div>
 
         <div class="service-card">
           <i class="fa-solid fa-face-smile"></i>
-          <h3>Cosmetic Dentistry</h3>
-          <p>Enhance your smile with aesthetic dental treatments.</p>
+          <h3>
+            <span class="lang en">Tooth Whitening</span>
+            <span class="lang hi">दांतों की सफेदी</span>
+          </h3>
+
+          <p>
+            <span class="lang en">
+              Safe and effective whitening treatment to enhance the brightness
+              of your smile.
+            </span>
+            <span class="lang hi">
+              सुरक्षित और प्रभावी उपचार से दांतों की चमक बढ़ाएं।
+            </span>
+          </p>
         </div>
       </div>
     </section>
@@ -129,26 +249,53 @@
 
         <!-- CONTENT -->
         <div class="about-content">
-          <h2>Meet Your Dentist</h2>
+          <h2>
+            <span class="lang en">Meet Your Dentist</span>
+            <span class="lang hi">अपने डॉक्टर से मिलें</span>
+          </h2>
+
           <h3>Dr. Pravin Kumar</h3>
 
           <p>
-            At Smile Craft Dental & Maxillofacial Center, we are committed to
-            providing high-quality dental care with modern technology and a
-            patient-first approach.
+            <span class="lang en">
+              At Smile Craft Dental & Maxillofacial Center, we provide
+              high-quality dental care using modern equipment and a
+              patient-first approach.
+            </span>
+            <span class="lang hi">
+              स्माइल क्राफ्ट डेंटल एंड मैक्सिलोफेशियल सेंटर में हम आधुनिक तकनीक
+              के साथ उच्च गुणवत्ता वाली दंत चिकित्सा प्रदान करते हैं।
+            </span>
           </p>
 
           <p>
-            With years of experience in dental and maxillofacial treatments, Dr.
-            Pravin Kumar ensures comfortable and effective treatment for every
-            patient.
+            <span class="lang en">
+              With years of experience, Dr. Pravin Kumar ensures comfortable,
+              safe, and effective treatment for every patient.
+            </span>
+            <span class="lang hi">
+              वर्षों के अनुभव के साथ, डॉ. प्रवीन कुमार हर मरीज को सुरक्षित और
+              आरामदायक उपचार प्रदान करते हैं।
+            </span>
           </p>
 
           <ul>
-            <li>✔ 10+ Years of Experience</li>
-            <li>✔ Advanced Dental Technology</li>
-            <li>✔ Patient-Centered Care</li>
-            <li>✔ Affordable Treatment</li>
+            <li>
+              <span class="lang en">✔ 10+ Years of Experience</span>
+              <span class="lang hi">✔ 10+ वर्षों का अनुभव</span>
+            </li>
+            <li>
+              <span class="lang en">✔ Advanced Dental Technology</span>
+              <span class="lang hi">✔ उन्नत दंत तकनीक</span>
+            </li>
+            <li>
+              <span class="lang en">✔ Patient-Centered Care</span>
+              <span class="lang hi">✔ मरीज केंद्रित देखभाल</span>
+            </li>
+            <li>
+              <span class="lang en">✔ Affordable Treatment</span>
+              <span class="lang hi">✔ किफायती उपचार</span>
+            </li>
           </ul>
 
           <button onclick="openModal()">Book Appointment</button>
@@ -157,9 +304,18 @@
     </section>
 
     <section class="contact animate" id="contact">
-      <h2>Contact Us</h2>
+      <h2>
+        <span class="lang en">Contact Us</span>
+        <span class="lang hi">संपर्क करें</span>
+      </h2>
+
       <p class="contact-subtitle">
-        Get in touch with us for appointments and queries
+        <span class="lang en">
+          Get in touch with us for appointments and queries
+        </span>
+        <span class="lang hi">
+          अपॉइंटमेंट और जानकारी के लिए हमसे संपर्क करें
+        </span>
       </p>
 
       <div class="contact-container">
@@ -181,10 +337,14 @@
           </p>
 
           <button class="contact-btn" onclick="openWhatsApp()">
-            Chat on WhatsApp
+            <span class="lang en">Chat on WhatsApp</span>
+            <span class="lang hi">व्हाट्सएप पर चैट करें</span>
           </button>
 
-          <button class="map-btn" onclick="openMap()">Get Directions</button>
+          <button class="map-btn" onclick="openMap()">
+            <span class="lang en">Get Directions</span>
+            <span class="lang hi">दिशा प्राप्त करें</span>
+          </button>
         </div>
 
         <!-- RIGHT SIDE (MAP) -->
@@ -203,31 +363,62 @@
     </section>
 
     <section class="testimonials animate" id="testimonials">
-      <h2>Patient Reviews</h2>
+      <span class="lang en">Patient Reviews</span>
+      <span class="lang hi">मरीजों की राय</span>
+
+      <p class="contact-subtitle">
+        <span class="lang en">
+          Get in touch with us for appointments and queries
+        </span>
+        <span class="lang hi">
+          अपॉइंटमेंट और जानकारी के लिए हमसे संपर्क करें
+        </span>
+      </p>
 
       <div class="review-container">
         <div class="review-card">
           ⭐⭐⭐⭐⭐
-          <p>"Very professional and clean clinic. Highly recommend!"</p>
+          <p>
+            <span class="lang en">
+              "Very professional and clean clinic. Highly recommend!"
+            </span>
+            <span class="lang hi">
+              "बहुत ही पेशेवर और साफ-सुथरा क्लिनिक है। मैं इसे जरूर सुझाव
+              दूंगा!"
+            </span>
+          </p>
           <h4>- Rahul Patel</h4>
         </div>
 
         <div class="review-card">
           ⭐⭐⭐⭐⭐
-          <p>"Best dental experience I’ve had. Friendly staff."</p>
+          <p>
+            <span class="lang en">
+              "Best dental experience I’ve had. Friendly staff."
+            </span>
+            <span class="lang hi">
+              "यह मेरा सबसे अच्छा डेंटल अनुभव रहा। स्टाफ बहुत सहयोगी है।"
+            </span>
+          </p>
           <h4>- Sneha Shah</h4>
         </div>
 
         <div class="review-card">
           ⭐⭐⭐⭐⭐
-          <p>"Pain-free treatment and great care."</p>
+          <p>
+            <span class="lang en"> "Pain-free treatment and great care." </span>
+            <span class="lang hi">
+              "दर्द रहित उपचार और बेहतरीन देखभाल मिली।"
+            </span>
+          </p>
           <h4>- Amit Kumar</h4>
         </div>
       </div>
     </section>
 
     <section class="gallery animate" id="gallery">
-      <h2>Our Clinic</h2>
+      <span class="lang en">Our Clinic</span>
+      <span class="lang hi">हमारा क्लिनिक</span>
 
       <div class="gallery-container">
         <img src="images/g1.jpg" alt="" />
@@ -243,41 +434,97 @@
       <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">×</span>
 
-        <h2>Book Appointment</h2>
+        <h2>
+          <span class="lang en">Book Appointment</span>
+          <span class="lang hi">अपॉइंटमेंट बुक करें</span>
+        </h2>
 
-        <input type="text" id="name" placeholder="Your Name" />
-        <input type="email" id="email" placeholder="Your Email" />
-        <input type="tel" id="phone" placeholder="Your Phone Number" />
+        <!-- NAME -->
+        <label>
+          <span class="lang en">Full Name</span>
+          <span class="lang hi">पूरा नाम</span>
+        </label>
+        <input type="text" id="name" />
 
+        <!-- EMAIL -->
+        <label>
+          <span class="lang en">Email Address</span>
+          <span class="lang hi">ईमेल पता</span>
+        </label>
+        <input type="email" id="email" />
+
+        <!-- PHONE -->
+        <label>
+          <span class="lang en">Phone Number</span>
+          <span class="lang hi">फोन नंबर</span>
+        </label>
+        <input type="tel" id="phone" />
+
+        <!-- DATE -->
+        <label>
+          <span class="lang en">Select Date</span>
+          <span class="lang hi">तारीख चुनें</span>
+        </label>
         <input type="date" id="date" />
 
+        <!-- TIME -->
+        <label>
+          <span class="lang en">Select Time</span>
+          <span class="lang hi">समय चुनें</span>
+        </label>
         <select id="time">
-          <option value="">Select Time</option>
-          <option>10:00 AM</option>
-          <option>12:00 PM</option>
-          <option>4:00 PM</option>
-          <option>6:00 PM</option>
+          <option value="" data-en="Select Time" data-hi="समय चुनें">
+            Select Time
+          </option>
+          <option data-en="10:00 AM" data-hi="सुबह 10:00 बजे">10:00 AM</option>
+          <option data-en="12:00 PM" data-hi="दोपहर 12:00 बजे">12:00 PM</option>
+          <option data-en="4:00 PM" data-hi="शाम 4:00 बजे">4:00 PM</option>
+          <option data-en="6:00 PM" data-hi="शाम 6:00 बजे">6:00 PM</option>
         </select>
 
-        <textarea
-          id="problem"
-          placeholder="Describe your problem (optional)"
-        ></textarea>
+        <!-- PROBLEM -->
+        <label>
+          <span class="lang en">Describe Your Problem (Optional)</span>
+          <span class="lang hi">अपनी समस्या लिखें (वैकल्पिक)</span>
+        </label>
+        <textarea id="problem"></textarea>
 
+        <!-- BUTTON -->
         <button class="whatsapp-btn" onclick="sendToWhatsApp()">
-          Book on WhatsApp
+          <span class="lang en">Book on WhatsApp</span>
+          <span class="lang hi">व्हाट्सएप पर बुक करें</span>
         </button>
       </div>
     </div>
 
     <footer class="footer">
-      <h3>Smile Craft Dental & Maxillofacial Center</h3>
-      <p>Dr. Pravin Kumar</p>
+      <h3>
+        <span class="lang en">Smile Craft Dental & Maxillofacial Center</span>
+        <span class="lang hi"
+          >स्माइल क्राफ्ट डेंटल एंड मैक्सिलोफेशियल सेंटर</span
+        >
+      </h3>
 
-      <p>📍 Your Address Here</p>
-      <p>📞 +91 9876543210</p>
+      <p>
+        <span class="lang en">Dr. Pravin Kumar</span>
+        <span class="lang hi">डॉ. प्रवीन कुमार</span>
+      </p>
 
-      <p class="copyright">© 2026 All Rights Reserved</p>
+      <p>
+        <span class="lang en">
+          <i class="fa-solid fa-location-dot"></i> Your Address Here</span
+        >
+        <span class="lang hi"
+          ><i class="fa-solid fa-location-dot"></i> आपका पता यहाँ</span
+        >
+      </p>
+
+      <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+
+      <p class="copyright">
+        <span class="lang en">© 2026 All Rights Reserved</span>
+        <span class="lang hi">© 2026 सर्वाधिकार सुरक्षित</span>
+      </p>
     </footer>
 
     <!-- JS -->
@@ -286,11 +533,23 @@
       💬
     </a>
     <div class="floating-bar">
-      <span>Need a Dental Checkup?</span>
-      <button onclick="openModal()">Book Appointment</button>
+      <span>
+        <span class="lang en">Need a Dental Checkup?</span>
+        <span class="lang hi">क्या आपको दांतों की जांच चाहिए?</span>
+      </span>
+
+      <button onclick="openModal()">
+        <span class="lang en">Book Appointment</span>
+        <span class="lang hi">अपॉइंटमेंट बुक करें</span>
+      </button>
     </div>
     <div id="successPopup" class="success-popup">
-      Appointment request ready! Redirecting to WhatsApp...
+      <span class="lang en">
+        Appointment request ready! Redirecting to WhatsApp...
+      </span>
+      <span class="lang hi">
+        अपॉइंटमेंट अनुरोध तैयार है! व्हाट्सएप पर भेजा जा रहा है...
+      </span>
     </div>
     <script src="script.js"></script>
   </body>
