@@ -1,4 +1,6 @@
-/* RESET */
+/* ============================================================
+   RESET & VARIABLES
+   ============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +8,16 @@
 }
 html {
   scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #2563eb;
+  --secondary: #3b82f6;
+  --accent: #25d366;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f9fbfd;
+  --danger: #ef4444;
 }
 
 .lang.hi {
@@ -37,36 +49,8 @@ html {
 }
 
 .lang-switch button.active {
-  background: #2563eb;
+  background: var(--primary);
   color: white;
-}
-
-:root {
-  --primary: #2563eb;
-  --secondary: #3b82f6;
-  --accent: #25d366;
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --bg-light: #f9fbfd;
-}
-
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --primary: #2563eb;
-  --secondary: #3b82f6;
-  --accent: #25d366;
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --bg-light: #f9fbfd;
 }
 
 /* BODY */
@@ -280,7 +264,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -329,7 +313,213 @@ body {
   text-align: center;
 }
 
-/* ABOUT SECTION */
+/* ============================================================
+   WHY CHOOSE US SECTION
+   ============================================================ */
+.why-choose-us {
+  padding: 60px 20px;
+  background: white;
+  text-align: center;
+}
+
+.why-choose-us h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.why-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.why-card {
+  background: var(--bg-light);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.why-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.why-card i {
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.why-card:hover i {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.why-card h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.why-card p {
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq {
+  padding: 60px 20px;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.faq h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+.faq-item {
+  background: white;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.faq-item summary {
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f4ff, #f9f5ff);
+  transition: all 0.3s ease;
+  user-select: none;
+  text-align: left;
+}
+
+.faq-item summary:hover {
+  background: linear-gradient(135deg, #e0ecff, #f0e5ff);
+  color: var(--primary);
+}
+
+.faq-item summary::before {
+  content: "▼";
+  color: var(--primary);
+  transition: transform 0.3s ease;
+  margin-left: auto;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(180deg);
+}
+
+.faq-item[open] summary {
+  background: linear-gradient(135deg, #2563eb22, #3b82f622);
+  color: var(--primary);
+}
+
+.faq-item p {
+  padding: 15px 20px;
+  color: var(--text-light);
+  background: #fafbfc;
+  line-height: 1.7;
+  display: none;
+}
+
+.faq-item[open] p {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   EMERGENCY CTA BUTTON
+   ============================================================ */
+.emergency-cta {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff5f5;
+  border-left: 4px solid var(--danger);
+  border-radius: 6px;
+}
+
+.emergency-cta p {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.emergency-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--danger);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.emergency-btn:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+.emergency-btn i {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* 
 .about {
   padding: 60px 20px;
   background: #ffffff;
@@ -751,7 +941,7 @@ textarea {
   width: 100%;
   padding: 14px;
   margin-top: 15px;
-  background: #25d366;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 6px;
@@ -760,7 +950,12 @@ textarea {
 }
 
 .whatsapp-btn:hover {
-  background: #1ebe5d;
+  background: #1240a3;
+}
+
+.whatsapp-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* FOOTER TEXT */
@@ -784,20 +979,6 @@ img {
 
 img:hover {
   filter: brightness(1.05);
-}
-
-/* Chrome */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2563eb;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
 }
 
 /* Chrome */
@@ -938,61 +1119,404 @@ section h2::after {
   border-radius: 10px;
 }
 
-/* BODY */
-body {
-  font-family: "Poppins", sans-serif;
-  background: #f5f7fa;
+/* ============================================================
+   MOBILE RESPONSIVENESS
+   ============================================================ */
+
+/* TABLETS (768px and below) */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    gap: 0;
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-toggle {
+    display: flex;
+    order: 2;
+  }
+
+  .header-actions {
+    order: 3;
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+
+  .appointment-btn {
+    flex: 1;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 60vh;
+    margin: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  /* Sections */
+  .services {
+    padding: 40px 15px;
+  }
+
+  .services h2 {
+    font-size: 26px;
+  }
+
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card i {
+    font-size: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 14px;
+  }
+
+  .service-card p {
+    font-size: 12px;
+  }
+
+  /* Why Choose Us */
+  .why-container {
+    gap: 15px;
+  }
+
+  .why-card {
+    padding: 20px;
+  }
+
+  .why-card i {
+    font-size: 32px;
+  }
+
+  .why-card h3 {
+    font-size: 15px;
+  }
+
+  .why-card p {
+    font-size: 13px;
+  }
+
+  /* FAQ */
+  .faq-container {
+    max-width: 100%;
+  }
+
+  .faq-item summary {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .faq-item p {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  /* Contact */
+  .contact-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .contact-info {
+    max-width: 100%;
+  }
+
+  .contact-map {
+    max-width: 100%;
+  }
+
+  .contact-map iframe {
+    height: 250px;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    padding: 40px 15px;
+  }
+
+  .review-container {
+    gap: 15px;
+  }
+
+  .review-card {
+    max-width: 100%;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 40px 15px;
+  }
+
+  .gallery-container {
+    gap: 15px;
+  }
+
+  .gallery-container img {
+    height: 180px;
+  }
 }
 
-/* WRAPPER */
-.header-wrapper {
-  padding: 15px 25px;
-  background: #eef3f8;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* PHONES (480px and below) */
+@media (max-width: 480px) {
+  .header {
+    padding: 8px 10px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .appointment-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .lang-switch {
+    padding: 2px;
+  }
+
+  .lang-switch button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 50vh;
+    margin: 5px;
+  }
+
+  .hero-content {
+    padding: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .hero-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* Sections */
+  .services {
+    padding: 30px 12px;
+  }
+
+  .services h2,
+  .why-choose-us h2,
+  .faq h2,
+  .testimonials h2,
+  .gallery h2,
+  .contact h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .services h2::after,
+  .why-choose-us h2::after,
+  .faq h2::after {
+    width: 30px;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-card {
+    padding: 12px;
+  }
+
+  .service-card i {
+    font-size: 24px;
+  }
+
+  .why-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .why-card {
+    padding: 15px;
+  }
+
+  .why-card i {
+    font-size: 28px;
+  }
+
+  .why-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: 12px;
+  }
+
+  /* About */
+  .about-container {
+    gap: 15px;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 20px;
+  }
+
+  .about-content button {
+    width: 100%;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 30px 12px;
+  }
+
+  .faq-item summary {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .faq-item p {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  /* Contact */
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info p {
+    flex-wrap: wrap;
+  }
+
+  .contact-btn,
+  .map-btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .emergency-cta {
+    margin-top: 15px;
+    padding: 12px;
+  }
+
+  .emergency-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 15px;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    padding: 30px 12px;
+  }
+
+  .review-container {
+    gap: 12px;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 30px 12px;
+  }
+
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gallery-container img {
+    height: 150px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px 12px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Modal */
+  .modal-content {
+    width: 95%;
+  }
 }
 
-/* HEADER BOX */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  padding: 12px 25px;
-  border-radius: 50px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* LOGO */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo img {
-  width: 42px;
-  height: 42px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.clinic-name {
-  font-weight: 700;
-  font-size: 15px;
-  color: #111;
-}
-
-.doctor-name {
-  font-size: 12px;
-  color: #777;
-}
-
-/* BUTTON */
+/* ABOUT SECTION */
 .appointment-btn {
   padding: 12px 26px;
   border-radius: 30px;
@@ -1500,23 +2024,6 @@ textarea {
 textarea {
   height: 70px;
   resize: none;
-}
-
-/* BUTTON */
-.whatsapp-btn {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  background: #25d366;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.whatsapp-btn:hover {
-  background: #1ebe5d;
 }
 
 /* FOOTER TEXT */

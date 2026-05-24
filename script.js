@@ -1,25 +1,107 @@
-let whatsappNumber = 919989654703;
-function scrollToForm() {
-  document.getElementById("appointment").scrollIntoView({
-    behavior: "smooth",
-  });
-}
+/* ============================================================
+   CONFIGURATION
+   ============================================================ */
+let whatsappNumber = 919288309406;
 
+/* ============================================================
+   MODAL FUNCTIONS
+   ============================================================ */
 function openModal() {
-  document.getElementById("appointmentModal").style.display = "flex";
+  const modal = document.getElementById("appointmentModal");
+  modal.style.display = "flex";
+  setTimeout(() => modal.classList.add("show"), 10);
 }
 
 function closeModal() {
-  document.getElementById("appointmentModal").style.display = "none";
+  const modal = document.getElementById("appointmentModal");
+  modal.classList.remove("show");
+  setTimeout(() => (modal.style.display = "none"), 300);
 }
 
-/* CLOSE ON OUTSIDE CLICK */
+/* Close modal on outside click */
 window.onclick = function (event) {
-  let modal = document.getElementById("appointmentModal");
+  const modal = document.getElementById("appointmentModal");
   if (event.target === modal) {
-    modal.style.display = "none";
+    closeModal();
   }
 };
+
+/* ============================================================
+   NAVIGATION MENU
+   ============================================================ */
+function toggleMenu() {
+  const navMenu = document.getElementById("navMenu");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const isActive = navMenu.classList.toggle("active");
+
+  menuToggle.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isActive.toString());
+}
+
+/* Close menu when nav link clicked */
+document.querySelectorAll(".nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("navMenu").classList.remove("active");
+    document.querySelector(".menu-toggle").classList.remove("open");
+  });
+});
+
+/* ============================================================
+   FORM VALIDATION
+   ============================================================ */
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validatePhone(phone) {
+  return /^[6-9]\d{9}$/.test(phone); // Indian format
+}
+
+/* ============================================================
+   APPOINTMENT BOOKING
+   ============================================================ */
+function sendToEmail() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const problem = document.getElementById("problem").value;
+
+  const button = document.querySelector(".whatsapp-btn");
+  const originalText = button.innerHTML;
+
+  button.innerHTML = `
+    <span class="lang en">Booking...</span>
+    <span class="lang hi">बुक हो रहा है...</span>
+  `;
+
+  button.disabled = true;
+
+  emailjs
+    .send("service_cqjci6q", "template_8er9mw8", {
+      name: name,
+      email: email,
+      phone: phone,
+      date: date,
+      time: time,
+      problem: problem,
+    })
+    .then(() => {
+      console.log("Email sent successfully!");
+
+      setTimeout(() => {
+        closeModal();
+        button.innerHTML = originalText;
+        button.disabled = false;
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error("Email failed:", error);
+      button.innerHTML = originalText;
+      button.disabled = false;
+    });
+}
 
 function sendToWhatsApp() {
   let name = document.getElementById("name").value.trim();
@@ -37,7 +119,6 @@ function sendToWhatsApp() {
     alert("Please enter a valid email");
     return;
   }
-
   if (!validatePhone(phone)) {
     alert("Enter valid 10-digit phone number");
     return;
@@ -60,23 +141,20 @@ Problem: ${problem || "N/A"}
 
 Please confirm availability.`;
 
-  let phoneNumber = whatsappNumber;
+  let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-  /* SHOW SUCCESS POPUP */
+  /* Show success popup */
   let popup = document.getElementById("successPopup");
   popup.classList.add("show");
 
-  /* OPEN WHATSAPP AFTER SHORT DELAY */
+  /* Open WhatsApp after short delay */
   setTimeout(() => {
     window.open(url, "_blank");
   }, 1200);
 
-  /* RESET FORM + CLOSE MODAL */
+  /* Reset form and close modal */
   setTimeout(() => {
-    document.getElementById("appointmentModal").style.display = "none";
-
+    closeModal();
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("phone").value = "";
@@ -86,45 +164,13 @@ Please confirm availability.`;
 
     button.disabled = false;
     button.innerText = "Book on WhatsApp";
-
     popup.classList.remove("show");
   }, 3000);
 }
 
-function openModal() {
-  const modal = document.getElementById("appointmentModal");
-  modal.style.display = "flex";
-  setTimeout(() => modal.classList.add("show"), 10);
-}
-
-function closeModal() {
-  const modal = document.getElementById("appointmentModal");
-  modal.classList.remove("show");
-  setTimeout(() => (modal.style.display = "none"), 300);
-}
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function validatePhone(phone) {
-  return /^[6-9]\d{9}$/.test(phone); // Indian format
-}
-
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header-wrapper");
-
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
-
 function openWhatsApp() {
-  let phoneNumber = whatsappNumber; // CHANGE THIS
   let message = "Hello Doctor, I want to book an appointment.";
-  let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  let url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
 
@@ -132,67 +178,39 @@ function openMap() {
   window.open("https://maps.app.goo.gl/tf8feNz9hpsK3H5B8", "_blank");
 }
 
-function toggleMenu() {
-  document.getElementById("navMenu").classList.toggle("active");
+function scrollToForm() {
+  document.getElementById("appointment").scrollIntoView({
+    behavior: "smooth",
+  });
 }
 
-document.querySelectorAll(".nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    document.getElementById("navMenu").classList.remove("active");
-  });
-});
-
+/* ============================================================
+   SCROLL ANIMATIONS & DETECTION
+   ============================================================ */
 function revealOnScroll() {
   const elements = document.querySelectorAll(".animate");
-
   elements.forEach((el) => {
     const windowHeight = window.innerHeight;
     const elementTop = el.getBoundingClientRect().top;
-
     if (elementTop < windowHeight - 100) {
       el.classList.add("show");
     }
   });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-
-// Run once on load
-revealOnScroll();
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav a");
-
-window.addEventListener("scroll", () => {
+function updateActiveNavLink() {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav a");
   let current = "";
 
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 100;
+    const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.clientHeight;
-    window.addEventListener("scroll", () => {
-      let current = "";
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
-
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((a) => {
-        a.classList.remove("active");
-
-        if (a.getAttribute("href") === "#" + current) {
-          a.classList.add("active");
-        }
-      });
-    });
-    if (pageYOffset >= sectionTop) {
+    if (
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ) {
       current = section.getAttribute("id");
     }
   });
@@ -203,48 +221,62 @@ window.addEventListener("scroll", () => {
       a.classList.add("active");
     }
   });
-});
-window.addEventListener("load", () => {
-  document.getElementById("loader").style.display = "none";
-});
+}
 
-window.addEventListener("scroll", () => {
+function updateScrollProgress() {
   const scrollTop = document.documentElement.scrollTop;
   const height =
     document.documentElement.scrollHeight -
     document.documentElement.clientHeight;
-
   const scrolled = (scrollTop / height) * 100;
-
   document.getElementById("progress-bar").style.width = scrolled + "%";
+}
+
+function updateHeaderScroll() {
+  const header = document.querySelector(".header-wrapper");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+}
+
+/* Consolidated scroll handler */
+window.addEventListener("scroll", () => {
+  revealOnScroll();
+  updateActiveNavLink();
+  updateScrollProgress();
+  updateHeaderScroll();
 });
 
+/* Run reveal on initial load */
+revealOnScroll();
+
+/* ============================================================
+   FLOATING BAR & PAGE LOAD
+   ============================================================ */
 function handleFloatingBar() {
   const bar = document.querySelector(".floating-bar");
 
   function showBar() {
     bar.classList.add("show");
-
-    // hide after 5 sec
     setTimeout(() => {
       bar.classList.remove("show");
     }, 8000);
   }
 
-  // first appearance after 10 sec
   setTimeout(showBar, 5000);
-
-  // repeat every 15 sec
   setInterval(showBar, 10000);
 }
 
-function toggleMenu() {
-  document.getElementById("navMenu").classList.toggle("active");
-  document.querySelector(".menu-toggle").classList.toggle("open");
-}
+window.addEventListener("load", () => {
+  document.getElementById("loader").style.display = "none";
+  handleFloatingBar();
+});
 
-handleFloatingBar();
-
+/* ============================================================
+   LANGUAGE SWITCHING (BILINGUAL)
+   ============================================================ */
 function switchLang(lang) {
   document.querySelectorAll(".lang").forEach((el) => {
     el.style.display = "none";
@@ -254,25 +286,23 @@ function switchLang(lang) {
     el.style.display = "inline";
   });
 
-  // active button highlight
   document.querySelectorAll(".lang-switch button").forEach((btn) => {
     btn.classList.remove("active");
+    btn.setAttribute("aria-pressed", "false");
   });
 
-  document
-    .querySelector(`.lang-switch button[onclick="switchLang('${lang}')"]`)
-    .classList.add("active");
+  const activeButton = document.querySelector(
+    `.lang-switch button[onclick="switchLang('${lang}')"]`,
+  );
+  if (activeButton) {
+    activeButton.classList.add("active");
+    activeButton.setAttribute("aria-pressed", "true");
+  }
 
   localStorage.setItem("lang", lang);
-
   updatePlaceholders(lang);
   updateSelectOptions(lang);
 }
-
-window.onload = () => {
-  const lang = localStorage.getItem("lang") || "en";
-  switchLang(lang);
-};
 
 function updatePlaceholders(lang) {
   document.querySelectorAll("input, textarea").forEach((el) => {
@@ -289,3 +319,8 @@ function updateSelectOptions(lang) {
     }
   });
 }
+
+window.onload = () => {
+  const lang = localStorage.getItem("lang") || "en";
+  switchLang(lang);
+};

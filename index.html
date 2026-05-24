@@ -20,69 +20,111 @@
   </head>
 
   <body>
-    <div id="loader">
-      <div class="spinner"></div>
+    <div id="loader" aria-label="Page loading">
+      <div class="spinner" role="status"></div>
     </div>
-    <div id="progress-bar"></div>
-    <header class="header-wrapper">
+    <div
+      id="progress-bar"
+      role="progressbar"
+      aria-valuenow="0"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-label="Page scroll progress"
+    ></div>
+    <header class="header-wrapper" role="banner">
       <div class="header">
         <!-- TOP ROW -->
         <div class="header-top">
           <div class="logo">
-            <img src="images/image.png" alt="Logo" />
+            <img
+              src="images/logo.jpeg"
+              alt="Smile Craft Dental - Dr. Pravin Kumar"
+            />
             <div class="logo-text">
               <div class="clinic-name">Smile Craft Dental</div>
               <div class="doctor-name">Dr. Pravin Kumar</div>
             </div>
           </div>
 
-          <div class="menu-toggle" onclick="toggleMenu()">
+          <button
+            class="menu-toggle"
+            onclick="toggleMenu()"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navMenu"
+          >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
 
         <!-- NAV -->
-        <nav class="nav" id="navMenu">
-          <a href="#home">
+        <nav class="nav" id="navMenu" aria-label="Main navigation">
+          <a href="#home" aria-label="Go to home section">
             <span class="lang en">Home</span>
             <span class="lang hi">होम</span>
           </a>
-          <a href="#services">
+          <a href="#services" aria-label="Go to services section">
             <span class="lang en">Services</span>
             <span class="lang hi">सेवाएं</span>
           </a>
-          <a href="#about">
+          <a href="#about" aria-label="Go to about section">
             <span class="lang en">About Us</span>
             <span class="lang hi">हमारे बारे में</span>
           </a>
-          <a href="#contact">
+          <a href="#contact" aria-label="Go to contact section">
             <span class="lang en">Contact Us</span>
             <span class="lang hi">संपर्क करें</span>
           </a>
-          <a href="#gallery">
-            <span class="lang en">Our Gallery</span>
-            <span class="lang hi">हमारी गैलरी</span>
+          <a href="#faq" aria-label="Go to FAQ section">
+            <span class="lang en">FAQ</span>
+            <span class="lang hi">सामान्य प्रश्न</span>
+          </a>
+          <a href="#gallery" aria-label="Go to gallery section">
+            <span class="lang en">Gallery</span>
+            <span class="lang hi">गैलरी</span>
           </a>
         </nav>
 
         <!-- BUTTON -->
         <div class="header-actions">
-          <button class="appointment-btn" onclick="openModal()">
+          <button
+            class="appointment-btn"
+            onclick="openModal()"
+            aria-label="Book an appointment"
+          >
             <span class="lang en">Book Appointment →</span>
             <span class="lang hi">अपॉइंटमेंट बुक करें →</span>
           </button>
 
-          <div class="lang-switch">
-            <button class="active" onclick="switchLang('en')">EN</button>
-            <button onclick="switchLang('hi')">हिंदी</button>
+          <div class="lang-switch" role="group" aria-label="Language selection">
+            <button
+              class="active"
+              onclick="switchLang('en')"
+              aria-label="Switch to English"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              onclick="switchLang('hi')"
+              aria-label="हिंदी में स्विच करें (Switch to Hindi)"
+              aria-pressed="false"
+            >
+              हिंदी
+            </button>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="hero animate" id="home">
+    <section
+      class="hero animate"
+      id="home"
+      role="region"
+      aria-label="Hero section - Your Smile, Our Priority"
+    >
       <div class="hero-overlay">
         <div class="hero-content">
           <h1>
@@ -129,12 +171,28 @@
 
       <div class="services-container">
         <div class="service-card">
+          <i class="fa-solid fa-stethoscope"></i>
+          <h3>
+            <span class="lang en">Dental Consultation & Digital X-ray</span>
+            <span class="lang hi">दंत परामर्श और डिजिटल एक्स-रे</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Expert consultation with advanced digital imaging for accurate
+              diagnosis and treatment planning.
+            </span>
+            <span class="lang hi">
+              आधुनिक डिजिटल इमेजिंग के साथ सटीक निदान और उपचार योजना।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
           <i class="fa-solid fa-tooth"></i>
           <h3>
-            <span class="lang en">Teeth Cleaning</span>
-            <span class="lang hi">दांतों की सफाई</span>
+            <span class="lang en">Scaling & Polishing</span>
+            <span class="lang hi">स्केलिंग और पॉलिशिंग</span>
           </h3>
-
           <p>
             <span class="lang en">
               Professional cleaning for healthy and bright teeth. Helps remove
@@ -142,7 +200,25 @@
             </span>
             <span class="lang hi">
               स्वस्थ और चमकदार दांतों के लिए पेशेवर सफाई। यह प्लाक हटाने और
-              मसूड़ों की बीमारी से बचाने में मदद करता है।
+              मसूड़ों की बीमारी से बचाते हैं।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-droplet"></i>
+          <h3>
+            <span class="lang en">Tooth Colored Filling</span>
+            <span class="lang hi">दांतों के रंग की फिलिंग</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Natural-looking dental fillings that blend seamlessly with your
+              teeth using advanced composite materials.
+            </span>
+            <span class="lang hi">
+              प्राकृतिक दिखने वाली फिलिंग जो आपके दांतों के साथ पूरी तरह मिल
+              जाती है।
             </span>
           </p>
         </div>
@@ -150,10 +226,9 @@
         <div class="service-card">
           <i class="fa-solid fa-screwdriver-wrench"></i>
           <h3>
-            <span class="lang en">Root Canal</span>
+            <span class="lang en">Root Canal Treatment</span>
             <span class="lang hi">रूट कैनाल उपचार</span>
           </h3>
-
           <p>
             <span class="lang en">
               Pain-free root canal treatment to save infected teeth and
@@ -167,37 +242,91 @@
         </div>
 
         <div class="service-card">
+          <i class="fa-solid fa-crown"></i>
+          <h3>
+            <span class="lang en">Crown & Bridge</span>
+            <span class="lang hi">क्राउन और ब्रिज</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Restore damaged teeth and fill gaps with durable, aesthetic crowns
+              and bridges that look and feel natural.
+            </span>
+            <span class="lang hi">
+              क्षतिग्रस्त दांतों को बहाल करें और प्राकृतिक दिखने वाले मजबूत
+              क्राउन और ब्रिज से खाली स्थान भरें।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
           <i class="fa-solid fa-hospital-user"></i>
           <h3>
             <span class="lang en">Dental Implants</span>
             <span class="lang hi">डेंटल इम्प्लांट</span>
           </h3>
-
           <p>
             <span class="lang en">
               Permanent and natural-looking solution for missing teeth,
               restoring both function and confidence.
             </span>
             <span class="lang hi">
-              खोए हुए दांतों के लिए स्थायी और प्राकृतिक दिखने वाला समाधान।
+              खोए हुए दांतों के लिए स्थायी और प्राकृतिक दिखने वाला समाधान जो
+              आपकी विश्वास को बहाल करता है।
             </span>
           </p>
         </div>
 
         <div class="service-card">
-          <i class="fa-solid fa-teeth"></i>
+          <i class="fa-solid fa-teeth-open"></i>
           <h3>
-            <span class="lang en">Cosmetic Dentistry</span>
-            <span class="lang hi">कॉस्मेटिक डेंटिस्ट्री</span>
+            <span class="lang en">Full & Partial Dentures</span>
+            <span class="lang hi">पूर्ण और आंशिक डेंचर</span>
           </h3>
-
           <p>
             <span class="lang en">
-              Improve the appearance of your smile with advanced aesthetic
-              dental treatments.
+              Custom-made dentures that fit perfectly and allow you to eat,
+              speak, and smile with confidence.
             </span>
             <span class="lang hi">
-              आधुनिक सौंदर्य उपचार से अपनी मुस्कान को और आकर्षक बनाएं।
+              कस्टम-निर्मित डेंचर जो परफेक्टली फिट होते हैं और आपको आत्मविश्वास
+              से खाने, बोलने और हंसने देते हैं।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <h3>
+            <span class="lang en">Gum Treatment</span>
+            <span class="lang hi">मसूड़ों का उपचार</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Comprehensive gum disease treatment to restore healthy gums and
+              prevent tooth loss.
+            </span>
+            <span class="lang hi">
+              स्वस्थ मसूड़ों को बहाल करने और दांतों के नुकसान को रोकने के लिए
+              व्यापक मसूड़ों का उपचार।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-scissors"></i>
+          <h3>
+            <span class="lang en">Wisdom Tooth Surgery</span>
+            <span class="lang hi">अकल दंत सर्जरी</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Safe and painless extraction of impacted or problematic wisdom
+              teeth with expert surgical techniques.
+            </span>
+            <span class="lang hi">
+              धरे हुए या समस्याग्रस्त अकल दांतों की सुरक्षित और दर्दरहित सर्जरी
+              विशेषज्ञ तकनीकों के साथ।
             </span>
           </p>
         </div>
@@ -208,14 +337,14 @@
             <span class="lang en">Braces & Aligners</span>
             <span class="lang hi">ब्रेसेस और अलाइनर्स</span>
           </h3>
-
           <p>
             <span class="lang en">
               Straighten your teeth with modern orthodontic solutions for a
               perfect and confident smile.
             </span>
             <span class="lang hi">
-              आधुनिक उपचार से दांतों को सीधा करके एक सुंदर मुस्कान पाएं।
+              आधुनिक ऑर्थोडॉन्टिक उपचार से दांतों को सीधा करके एक सुंदर मुस्कान
+              पाएं।
             </span>
           </p>
         </div>
@@ -226,15 +355,107 @@
             <span class="lang en">Tooth Whitening</span>
             <span class="lang hi">दांतों की सफेदी</span>
           </h3>
-
           <p>
             <span class="lang en">
               Safe and effective whitening treatment to enhance the brightness
               of your smile.
             </span>
             <span class="lang hi">
-              सुरक्षित और प्रभावी उपचार से दांतों की चमक बढ़ाएं।
+              सुरक्षित और प्रभावी उपचार से दांतों की चमक और सफेदी बढ़ाएं।
             </span>
+          </p>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-spa"></i>
+          <h3>
+            <span class="lang en">Advanced Aesthetics</span>
+            <span class="lang hi">उन्नत सौंदर्य उपचार</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Premium aesthetic treatments including Botox, fillers, and PRP for
+              a youthful and radiant appearance.
+            </span>
+            <span class="lang hi">
+              प्रीमियम सौंदर्य उपचार जिसमें बोटॉक्स, फिलर्स, और पीआरपी शामिल हैं
+              जो युवा और चमकदार रूप देते हैं।
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose-us animate" id="why-choose">
+      <h2>
+        <span class="lang en">Why Choose Us</span>
+        <span class="lang hi">हमें क्यों चुनें</span>
+      </h2>
+
+      <div class="why-container">
+        <div class="why-card">
+          <i class="fa-solid fa-microchip"></i>
+          <h3>
+            <span class="lang en">Advanced Technology</span>
+            <span class="lang hi">उन्नत तकनीक</span>
+          </h3>
+          <p>
+            <span class="lang en"
+              >Latest dental equipment and modern technology for precise and
+              effective treatments</span
+            >
+            <span class="lang hi">सटीक उपचार के लिए सबसे आधुनिक दंत उपकरण</span>
+          </p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>
+            <span class="lang en">Expert Team</span>
+            <span class="lang hi">विशेषज्ञ दल</span>
+          </h3>
+          <p>
+            <span class="lang en"
+              >Highly trained and experienced dental professionals dedicated to
+              your care</span
+            >
+            <span class="lang hi"
+              >आपकी देखभाल के लिए प्रशिक्षित और अनुभवी पेशेवर</span
+            >
+          </p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <h3>
+            <span class="lang en">Patient Care</span>
+            <span class="lang hi">रोगी देखभाल</span>
+          </h3>
+          <p>
+            <span class="lang en"
+              >Compassionate and personalized care for every patient with
+              comfort first approach</span
+            >
+            <span class="lang hi"
+              >प्रत्येक रोगी के लिए दयालु और व्यक्तिगत देखभाल</span
+            >
+          </p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-tag"></i>
+          <h3>
+            <span class="lang en">Affordable Pricing</span>
+            <span class="lang hi">सस्ती कीमत</span>
+          </h3>
+          <p>
+            <span class="lang en"
+              >Premium quality dental treatments at competitive and reasonable
+              prices</span
+            >
+            <span class="lang hi"
+              >प्रतिस्पर्धी कीमतों पर उच्च गुणवत्ता वाला उपचार</span
+            >
           </p>
         </div>
       </div>
@@ -244,7 +465,7 @@
       <div class="about-container">
         <!-- IMAGE -->
         <div class="about-image">
-          <img src="images/docImage.jpg" alt="Dr. Pravin Kumar" />
+          <img src="images/doc_image.jpeg" alt="Dr. Pravin Kumar" />
         </div>
 
         <!-- CONTENT -->
@@ -280,10 +501,6 @@
           </p>
 
           <ul>
-            <li>
-              <span class="lang en">✔ 10+ Years of Experience</span>
-              <span class="lang hi">✔ 10+ वर्षों का अनुभव</span>
-            </li>
             <li>
               <span class="lang en">✔ Advanced Dental Technology</span>
               <span class="lang hi">✔ उन्नत दंत तकनीक</span>
@@ -323,17 +540,60 @@
         <div class="contact-info">
           <h3>Smile Craft Dental & Maxillofacial Center</h3>
 
-          <p><i class="fa-solid fa-user"></i> Dr. Pravin Kumar</p>
           <p>
-            <i class="fa-solid fa-location-dot"></i> Ward No. 20, Shri
-            Krishnapuri, IMA Road, Near BP High School, Behind TV Tower,
-            Begusarai, Bihar, 851101.
+            <span class="lang en">
+              <i class="fa-solid fa-user"></i> Dr. Pravin Kumar
+            </span>
+
+            <span class="lang hi">
+              <i class="fa-solid fa-user"></i> डॉ. प्रवीन कुमार
+            </span>
           </p>
-          <p><i class="fa-solid fa-phone"></i> +91 8787877777</p>
-          <p><i class="fa-solid fa-clock"></i> 10 AM - 7 PM</p>
+
           <p>
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:smilecraft@gmail.com">smilecraft@gmail.com</a>
+            <span class="lang en">
+              <i class="fa-solid fa-location-dot"></i>
+              Ward No. 20, Shri Krishnapuri, IMA Road, Near BP High School,
+              Behind TV Tower, Begusarai, Bihar, 851101.
+            </span>
+
+            <span class="lang hi">
+              <i class="fa-solid fa-location-dot"></i>
+              वार्ड नंबर 20, श्री कृष्णपुरी, आईएमए रोड, बीपी हाई स्कूल के पास,
+              टीवी टावर के पीछे, बेगूसराय, बिहार, 851101।
+            </span>
+          </p>
+
+          <p>
+            <span class="lang en">
+              <i class="fa-solid fa-phone"></i> +91 9288309406
+            </span>
+
+            <span class="lang hi">
+              <i class="fa-solid fa-phone"></i> +91 9288309406
+            </span>
+          </p>
+
+          <p>
+            <span class="lang en">
+              <i class="fa-solid fa-clock"></i> 10 AM - 7 PM
+            </span>
+
+            <span class="lang hi">
+              <i class="fa-solid fa-clock"></i> सुबह 10 बजे - शाम 7 बजे
+            </span>
+          </p>
+
+          <p>
+            <span class="lang en">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:smilecraft@gmail.com">smilecraftomfs@gmail.com</a>
+            </span>
+
+            <span class="lang hi">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:smilecraft@gmail.com">smilecraftomfs@gmail.com</a>
+            </span>
           </p>
 
           <button class="contact-btn" onclick="openWhatsApp()">
@@ -345,6 +605,22 @@
             <span class="lang en">Get Directions</span>
             <span class="lang hi">दिशा प्राप्त करें</span>
           </button>
+
+          <div class="emergency-cta">
+            <p>
+              <span class="lang en"><strong>Dental Emergency?</strong></span>
+              <span class="lang hi"><strong>दंत आपातकाल?</strong></span>
+            </p>
+            <a
+              href="tel:+919288309406"
+              class="emergency-btn"
+              aria-label="Call emergency dental care now"
+            >
+              <i class="fa-solid fa-phone-volume"></i>
+              <span class="lang en">Call Now</span>
+              <span class="lang hi">अभी कॉल करें</span>
+            </a>
+          </div>
         </div>
 
         <!-- RIGHT SIDE (MAP) -->
@@ -416,6 +692,105 @@
       </div>
     </section>
 
+    <section class="faq animate" id="faq">
+      <h2>
+        <span class="lang en">Frequently Asked Questions</span>
+        <span class="lang hi">अक्सर पूछे जाने वाले प्रश्न</span>
+      </h2>
+
+      <div class="faq-container">
+        <details class="faq-item">
+          <summary>
+            <span class="lang en">How often should I visit the dentist?</span>
+            <span class="lang hi"
+              >मुझे दंत चिकित्सक से कितनी बार मिलना चाहिए?</span
+            >
+          </summary>
+          <p>
+            <span class="lang en"
+              >It is recommended to visit your dentist every 6 months for
+              regular check-ups and professional cleaning to maintain optimal
+              oral health.</span
+            >
+            <span class="lang hi"
+              >अच्छे मौखिक स्वास्थ्य के लिए हर 6 महीने में दंत चिकित्सक से मिलने
+              की सिफारिश की जाती है।</span
+            >
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="lang en">Are dental implants safe?</span>
+            <span class="lang hi">क्या दंत प्रत्यारोपण सुरक्षित हैं?</span>
+          </summary>
+          <p>
+            <span class="lang en"
+              >Yes, dental implants are very safe with a 95%+ success rate. We
+              use the latest FDA-approved technology and follow strict
+              sterilization protocols to ensure your safety.</span
+            >
+            <span class="lang hi"
+              >हाँ, दंत इम्प्लांट बहुत सुरक्षित हैं और 95% से अधिक सफलता दर है।
+              हम नवीनतम तकनीक का उपयोग करते हैं।</span
+            >
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="lang en">How long does teeth whitening last?</span>
+            <span class="lang hi">दांतों की सफेदी कितने समय तक रहती है?</span>
+          </summary>
+          <p>
+            <span class="lang en"
+              >Professional teeth whitening typically lasts 6-12 months
+              depending on your lifestyle and maintenance habits. We provide
+              aftercare tips for longer results.</span
+            >
+            <span class="lang hi"
+              >व्यावसायिक दांत सफेदी आमतौर पर 6-12 महीने तक रहती है।</span
+            >
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="lang en">Is root canal treatment painful?</span>
+            <span class="lang hi">क्या रूट कैनाल उपचार दर्दनाक है?</span>
+          </summary>
+          <p>
+            <span class="lang en"
+              >Modern root canal treatments are completely painless thanks to
+              advanced anesthetics and our gentle techniques. Most patients
+              experience relief from pain after the procedure.</span
+            >
+            <span class="lang hi"
+              >आधुनिक रूट कैनाल उपचार बिल्कुल दर्द रहित है। अधिकांश रोगियों को
+              उपचार के बाद दर्द में राहत मिलती है।</span
+            >
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span class="lang en">What are your clinic timings?</span>
+            <span class="lang hi">आपके क्लिनिक के समय क्या हैं?</span>
+          </summary>
+          <p>
+            <span class="lang en"
+              >Our clinic is open from 10 AM to 7 PM, Monday to Sunday.
+              Emergency cases are handled as per availability. Please call ahead
+              for emergency appointments.</span
+            >
+            <span class="lang hi"
+              >हमारा क्लिनिक सोमवार से रविवार तक 10 AM से 7 PM तक खुला है।</span
+            >
+          </p>
+        </details>
+      </div>
+    </section>
+
     <section class="gallery animate" id="gallery">
       <span class="lang en">Our Clinic</span>
       <span class="lang hi">हमारा क्लिनिक</span>
@@ -425,6 +800,9 @@
         <img src="images/g2.jpg" alt="" />
         <img src="images/g3.jpg" alt="" />
         <img src="images/g4.jpg" alt="" />
+        <img src="images/g5.jpg" alt="" />
+        <img src="images/g6.jpg" alt="" />
+        <img src="images/g7.jpeg" alt="" />
       </div>
     </section>
 
@@ -439,39 +817,38 @@
           <span class="lang hi">अपॉइंटमेंट बुक करें</span>
         </h2>
 
-        <!-- NAME -->
-        <label>
-          <span class="lang en">Full Name</span>
-          <span class="lang hi">पूरा नाम</span>
-        </label>
-        <input type="text" id="name" />
+        <input
+          type="text"
+          id="name"
+          data-en="Full Name"
+          data-hi="पूरा नाम"
+          placeholder="Full Name"
+        />
 
-        <!-- EMAIL -->
-        <label>
-          <span class="lang en">Email Address</span>
-          <span class="lang hi">ईमेल पता</span>
-        </label>
-        <input type="email" id="email" />
+        <input
+          type="email"
+          id="email"
+          data-en="Email Address"
+          data-hi="ईमेल पता"
+          placeholder="Email Address"
+        />
 
-        <!-- PHONE -->
-        <label>
-          <span class="lang en">Phone Number</span>
-          <span class="lang hi">फोन नंबर</span>
-        </label>
-        <input type="tel" id="phone" />
+        <input
+          type="tel"
+          id="phone"
+          data-en="Phone Number"
+          data-hi="फोन नंबर"
+          placeholder="Phone Number"
+        />
 
-        <!-- DATE -->
-        <label>
-          <span class="lang en">Select Date</span>
-          <span class="lang hi">तारीख चुनें</span>
-        </label>
-        <input type="date" id="date" />
+        <input
+          type="date"
+          id="date"
+          data-en="Select Date"
+          data-hi="तारीख चुनें"
+          placeholder="Select Date"
+        />
 
-        <!-- TIME -->
-        <label>
-          <span class="lang en">Select Time</span>
-          <span class="lang hi">समय चुनें</span>
-        </label>
         <select id="time">
           <option value="" data-en="Select Time" data-hi="समय चुनें">
             Select Time
@@ -482,17 +859,17 @@
           <option data-en="6:00 PM" data-hi="शाम 6:00 बजे">6:00 PM</option>
         </select>
 
-        <!-- PROBLEM -->
-        <label>
-          <span class="lang en">Describe Your Problem (Optional)</span>
-          <span class="lang hi">अपनी समस्या लिखें (वैकल्पिक)</span>
-        </label>
-        <textarea id="problem"></textarea>
+        <textarea
+          id="problem"
+          data-en="Describe Your Problem (Optional)"
+          data-hi="अपनी समस्या लिखें (वैकल्पिक)"
+          placeholder="Describe Your Problem (Optional)"
+        ></textarea>
 
         <!-- BUTTON -->
-        <button class="whatsapp-btn" onclick="sendToWhatsApp()">
-          <span class="lang en">Book on WhatsApp</span>
-          <span class="lang hi">व्हाट्सएप पर बुक करें</span>
+        <button class="whatsapp-btn" onclick="sendToEmail()">
+          <span class="lang en">Book Now</span>
+          <span class="lang hi">अभी बुक करें</span>
         </button>
       </div>
     </div>
@@ -529,7 +906,13 @@
 
     <!-- JS -->
 
-    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+    <a
+      href="https://wa.me/919876543210"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with us on WhatsApp"
+    >
       💬
     </a>
     <div class="floating-bar">
@@ -552,5 +935,13 @@
       </span>
     </div>
     <script src="script.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <script>
+      emailjs.init("uphcX247dYNakklMn");
+    </script>
   </body>
 </html>
