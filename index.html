@@ -244,17 +244,17 @@
         <div class="service-card">
           <i class="fa-solid fa-crown"></i>
           <h3>
-            <span class="lang en">Crown & Bridge</span>
-            <span class="lang hi">क्राउन और ब्रिज</span>
+            <span class="lang en">Prosthetic & Restorative Dentistry</span>
+            <span class="lang hi">प्रोस्थेटिक और पुनर्स्थापन दंत चिकित्सा</span>
           </h3>
           <p>
             <span class="lang en">
-              Restore damaged teeth and fill gaps with durable, aesthetic crowns
-              and bridges that look and feel natural.
+              Complete prosthetic solutions including crowns, bridges, and
+              custom dentures that restore function and aesthetics.
             </span>
             <span class="lang hi">
-              क्षतिग्रस्त दांतों को बहाल करें और प्राकृतिक दिखने वाले मजबूत
-              क्राउन और ब्रिज से खाली स्थान भरें।
+              क्राउन, ब्रिज और कस्टम डेंचर सहित संपूर्ण प्रोस्थेटिक समाधान जो
+              कार्य और सौंदर्य को बहाल करते हैं।
             </span>
           </p>
         </div>
@@ -273,24 +273,6 @@
             <span class="lang hi">
               खोए हुए दांतों के लिए स्थायी और प्राकृतिक दिखने वाला समाधान जो
               आपकी विश्वास को बहाल करता है।
-            </span>
-          </p>
-        </div>
-
-        <div class="service-card">
-          <i class="fa-solid fa-teeth-open"></i>
-          <h3>
-            <span class="lang en">Full & Partial Dentures</span>
-            <span class="lang hi">पूर्ण और आंशिक डेंचर</span>
-          </h3>
-          <p>
-            <span class="lang en">
-              Custom-made dentures that fit perfectly and allow you to eat,
-              speak, and smile with confidence.
-            </span>
-            <span class="lang hi">
-              कस्टम-निर्मित डेंचर जो परफेक्टली फिट होते हैं और आपको आत्मविश्वास
-              से खाने, बोलने और हंसने देते हैं।
             </span>
           </p>
         </div>
@@ -327,6 +309,24 @@
             <span class="lang hi">
               धरे हुए या समस्याग्रस्त अकल दांतों की सुरक्षित और दर्दरहित सर्जरी
               विशेषज्ञ तकनीकों के साथ।
+            </span>
+          </p>
+        </div>
+
+        <div class="service-card">
+          <i class="fa-solid fa-hand-fist"></i>
+          <h3>
+            <span class="lang en">Maxillofacial Trauma</span>
+            <span class="lang hi">मैक्सिलोफेशियल ट्रॉमा</span>
+          </h3>
+          <p>
+            <span class="lang en">
+              Expert surgical management of facial injuries, fractures, and
+              trauma with advanced techniques to restore form and function.
+            </span>
+            <span class="lang hi">
+              चेहरे की चोटों, फ्रैक्चर और आघात का विशेषज्ञ सर्जिकल उपचार जो रूप
+              और कार्य को बहाल करता है।
             </span>
           </p>
         </div>
@@ -803,6 +803,9 @@
         <img src="images/g5.jpg" alt="" />
         <img src="images/g6.jpg" alt="" />
         <img src="images/g7.jpeg" alt="" />
+        <img src="images/g8.jpeg" alt="" />
+        <img src="images/g9.jpeg" alt="" />
+        <img src="images/g10.jpeg" alt="" />
       </div>
     </section>
 
@@ -836,9 +839,14 @@
         <input
           type="tel"
           id="phone"
-          data-en="Phone Number"
-          data-hi="फोन नंबर"
-          placeholder="Phone Number"
+          data-en="Phone Number (10 digits)"
+          data-hi="फोन नंबर (10 अंक)"
+          placeholder="Phone Number (10 digits)"
+          maxlength="10"
+          inputmode="numeric"
+          pattern="[0-9]{10}"
+          oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)"
+          aria-label="Phone number (10 digits)"
         />
 
         <input
@@ -889,14 +897,18 @@
 
       <p>
         <span class="lang en">
-          <i class="fa-solid fa-location-dot"></i> Your Address Here</span
-        >
-        <span class="lang hi"
-          ><i class="fa-solid fa-location-dot"></i> आपका पता यहाँ</span
-        >
+          <i class="fa-solid fa-location-dot"></i>
+          Ward No. 20, Shri Krishnapuri, IMA Road, Near BP High School, Behind
+          TV Tower, Begusarai, Bihar, 851101.
+        </span>
+        <span class="lang hi">
+          <i class="fa-solid fa-location-dot"></i>
+          वार्ड नंबर 20, श्री कृष्णपुरी, आईएमए रोड, बीपी हाई स्कूल के पास, टीवी
+          टावर के पीछे, बेगूसराय, बिहार, 851101।
+        </span>
       </p>
 
-      <p><i class="fa-solid fa-phone"></i> +91 9876543210</p>
+      <p><i class="fa-solid fa-phone"></i> +91 9288309406</p>
 
       <p class="copyright">
         <span class="lang en">© 2026 All Rights Reserved</span>

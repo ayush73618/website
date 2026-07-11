@@ -67,29 +67,45 @@ function sendToEmail() {
   const date = document.getElementById("date").value;
   const time = document.getElementById("time").value;
   const problem = document.getElementById("problem").value;
-
   const button = document.querySelector(".whatsapp-btn");
   const originalText = button.innerHTML;
+
+  // Require name, phone, date and time. Email is optional.
+  if (!name || !phone || !date || !time) {
+    alert("Please fill all required fields (name, phone, date, time)");
+    return;
+  }
+
+  // If email provided, validate it
+  if (email && !validateEmail(email)) {
+    alert("Please enter a valid email or leave it empty to skip.");
+    return;
+  }
+
+  if (!validatePhone(phone)) {
+    alert("Enter valid 10-digit phone number");
+    return;
+  }
 
   button.innerHTML = `
     <span class="lang en">Booking...</span>
     <span class="lang hi">बुक हो रहा है...</span>
   `;
-
   button.disabled = true;
+
+  // Ensure we always send an email (email may be empty). Use a placeholder if not provided.
+  const sendEmail = email && email.trim() ? email.trim() : "Not provided";
 
   emailjs
     .send("service_cqjci6q", "template_8er9mw8", {
       name: name,
-      email: email,
+      email: sendEmail,
       phone: phone,
       date: date,
       time: time,
       problem: problem,
     })
     .then(() => {
-      console.log("Email sent successfully!");
-
       setTimeout(() => {
         closeModal();
         button.innerHTML = originalText;
@@ -111,20 +127,25 @@ function sendToWhatsApp() {
   let time = document.getElementById("time").value;
   let problem = document.getElementById("problem").value.trim();
 
-  if (!name || !email || !phone || !date || !time) {
-    alert("Please fill all required fields");
+  // Email is optional: require only name, phone, date and time
+  if (!name || !phone || !date || !time) {
+    alert("Please fill all required fields (name, phone, date, time)");
     return;
   }
-  if (!validateEmail(email)) {
-    alert("Please enter a valid email");
+
+  // If email provided, validate it
+  if (email && !validateEmail(email)) {
+    alert("Please enter a valid email or leave it empty to skip.");
     return;
   }
+
   if (!validatePhone(phone)) {
     alert("Enter valid 10-digit phone number");
     return;
   }
 
   let button = document.querySelector(".whatsapp-btn");
+  const originalText = button.innerHTML;
   button.disabled = true;
   button.innerHTML = '<span class="spinner-small"></span>';
 

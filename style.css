@@ -77,6 +77,8 @@ body {
   padding: 12px 25px;
   border-radius: 50px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  gap: 15px;
 }
 
 .header-wrapper {
@@ -154,6 +156,54 @@ body {
 .nav a:hover {
   color: #2563eb;
 }
+
+/* HAMBURGER MENU (mobile) */
+.menu-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+  transition: transform 0.28s ease, opacity 0.18s ease;
+  box-shadow: none;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+/* Open state: turn into a cross */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Make sure the button doesn't show an extra browser border */
+.menu-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}
+
 
 /* HERO SECTION */
 .hero {
@@ -2058,6 +2108,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   /* LOGO */
@@ -2085,9 +2136,12 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 24px;
+    width: 26px;
     height: 18px;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
   }
 
   .menu-toggle span {
@@ -2095,6 +2149,19 @@ textarea {
     width: 100%;
     background: #111;
     border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
   }
 
   /* NAV */
@@ -2102,41 +2169,33 @@ textarea {
     display: none;
     flex-direction: column;
     width: 100%;
-    gap: 0px !important;
+    gap: 0 !important;
   }
 
   .nav.active {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    width: 100%;
     background: #ffffff;
-    border-radius: 16px;
-    margin-top: 10px;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin-top: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   }
 
   .nav a {
-    padding: 8px 0;
+    padding: 12px;
     font-size: 15px;
     width: 100%;
     text-align: center;
-  }
-
-  .nav a {
-    padding: 12px 0;
-    font-size: 16px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav a:not(:last-child) {
     border-bottom: 1px solid #eee;
   }
 
+  .nav a:last-child {
+    border-bottom: none;
+  }
+
   .nav a:hover::after {
-    width: min-content !important;
+    display: none;
   }
 
   /* BUTTON */
@@ -2208,27 +2267,6 @@ textarea {
   /* WHATSAPP BUTTON */
   .whatsapp-float {
     bottom: 90px;
-  }
-
-  .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* THIS IS THE KEY FIX */
-  .logo {
-    flex: 1;
-  }
-  .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* THIS IS THE KEY FIX */
-  .logo {
-    flex: 1;
   }
 }
 
@@ -2460,136 +2498,4 @@ section {
   border-radius: 12px;
   max-width: 280px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* MOBILE STYLES */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 15px;
-    border-radius: 20px;
-    gap: 12px;
-  }
-
-  /* TOP ROW */
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo img {
-    width: 35px;
-    height: 35px;
-  }
-
-  /* TEXT */
-  .clinic-name {
-    font-size: 14px;
-  }
-
-  .doctor-name {
-    font-size: 11px;
-  }
-
-  /* MENU ICON */
-  .menu-toggle {
-    display: block;
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  /* NAV MENU */
-  .nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav a {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-
-  .nav.active {
-    display: flex;
-  }
-
-  /* BUTTON */
-  .appointment-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 25px;
-  }
-
-  /* HERO TEXT */
-  .hero-content h1 {
-    font-size: 26px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-  }
-
-  /* ABOUT */
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-image img {
-    width: 250px;
-  }
-
-  /* CONTACT */
-  .contact-container {
-    flex-direction: column;
-  }
-
-  /* HAMBURGER CONTAINER */
-  .menu-toggle {
-    width: 26px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  /* LINES */
-  .menu-toggle span {
-    height: 2px;
-    width: 100%;
-    background: #111;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  /* PERFECT CENTER ALIGN */
-  .menu-toggle.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-  .menu-toggle {
-    transition: 0.3s;
-  }
-
-  .menu-toggle.open {
-    transform: scale(1.05);
-  }
 }
